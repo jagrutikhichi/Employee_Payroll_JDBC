@@ -28,21 +28,24 @@ public class EmployeePayroll {
 	}
 
 	private static void UpdateData() throws SQLException {
-	
+		
 		System.out.println("Enter Id");
 	    int id = s.nextInt();
 		
 		System.out.println("Enter BasicPay");
-		double basicPay = s.nextDouble();
+	    int basicPay = s.nextInt();
 		
 		EmployeeRepo repo = new EmployeeRepo();
 		repo.updatedata(id, basicPay);
 			
 	}
 
+
 	private static void ReteriveData() throws SQLException {
 		EmployeeRepo repo = new EmployeeRepo();
-		List<Information> infos = repo.findAll();
+		System.out.println("Enter Name");
+		String Name = s.next();
+		List<Information> infos = repo.findAll(Name);
 		infos.forEach(System.out::println);
 	}
 
